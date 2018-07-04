@@ -1,0 +1,45 @@
+<ion-header>
+    
+    <ion-navbar >
+    
+        <button ion-button  menuToggle style="color:white">
+        <ion-icon name="menu"></ion-icon> 
+        </button>
+        <ion-grid>
+            <ion-row>
+      <ion-title align-title="center">
+          <div style="color:white"> Deleted</div>
+      </ion-title>
+   
+      </ion-row>
+      </ion-grid>
+    </ion-navbar>
+  
+  </ion-header>
+  
+<ion-content padding > 
+    <ion-grid *ngIf="!layout" style="height: 100%">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+  <div>
+<ion-icon ios="ios-trash" md="md-trash" style="zoom:3.2;margin-left: 15px; "></ion-icon>
+
+    <p><b>No notes in Recycle Bin</b></p></div>
+   </ion-row>
+   </ion-grid>
+   <div *ngIf="layout" >
+    <ion-card *ngFor ="let arr of deleteArray; let i=index " > 
+      
+          <ion-card-header>
+             <p align="center"><img src="{{arr.image}}"></p>
+               
+        <b>{{arr.title}}</b>
+          </ion-card-header>
+          <ion-card-content>
+          
+        <span style="font-size: 30px;font-family: Roboto Slab"> {{arr.note}}</span>
+        <span style="font-size: 20px;font-family: Roboto Slab" *ngFor ="let arr of deleteArray[i].tasks"> {{arr.name}}<br></span>
+
+          </ion-card-content>
+        </ion-card>
+        </div>
+  </ion-content>

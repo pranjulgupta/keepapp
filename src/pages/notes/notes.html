@@ -1,0 +1,50 @@
+<ion-header >
+    
+  <ion-navbar>
+  
+      <button ion-button  menuToggle style="color:white">
+      <ion-icon name="menu"></ion-icon> 
+      </button>
+     
+    <ion-title >
+      <div style="color:white"> Notes</div>
+    </ion-title>
+    <ion-buttons end>
+    <button  style="background: transparent" (click)="searchNotes()">  <ion-icon name="search"  style="zoom:1.5;margin-right: 10px;color:white "  ></ion-icon></button>
+   <button  style="background: transparent" (click)="toggle()"> <ion-icon name="square-outline"  style="zoom:1.5;margin-right: 5px;color:white"></ion-icon></button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+ <div  [ngClass]="{'notesContainer':layout==true}">
+  <ion-card   [ngClass]="{'cardsLayout':layout==true}" *ngFor ="let arr of notesarray ;let i=index" (click)= "openNote(i)"> 
+    
+        <ion-card-header>
+           <p align="center"><img src="{{arr.image}}"></p>
+             
+      <b>{{arr.title}}</b>
+        </ion-card-header>
+        <ion-card-content>
+        
+      <span style="font-size: 30px;font-family: Roboto Slab"> {{arr.note}}</span>
+      <span style="font-size: 20px;font-family: Roboto Slab" *ngFor ="let arr of notesarray[i].tasks"> {{arr.name}}<br></span>
+        </ion-card-content>
+      </ion-card>
+      </div>
+</ion-content>
+
+
+<ion-footer>
+    <ion-item>
+        <ion-buttons end>
+        <button type="submit" style="background: transparent;width:150px;text-align: left" (click)="goToNotes()">Take a note...</button>
+ 
+        <button  style="background: transparent" (click)="goToList()" >    <ion-icon name="list"  style="zoom:1.5; margin-right: 10px;" ></ion-icon></button>
+          <button style="background: transparent" (click)="goToCreate()" >   <ion-icon name="create" style="zoom:1.5; margin-right: 10px;"  ></ion-icon> </button>
+            <button  style="background: transparent" (click)="goTomic()" >  <ion-icon name="mic" style="zoom:1.5; margin-right: 10px;" ></ion-icon></button>
+        <button  style="background: transparent" (click)="goToCamera()" >  <ion-icon name="camera"  style="zoom:1.5; margin-right: 10px;"></ion-icon></button>
+      </ion-buttons>
+      </ion-item>
+  </ion-footer>

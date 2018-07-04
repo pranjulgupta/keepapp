@@ -1,3 +1,31 @@
 page-home {
-
+    .toolbar-background-md {
+            border-color:#f5b400;
+        background: #f5b400;
+    }
+    .buttonStyle{
+        background-image: url(https://static.canva.com/static/images/google_button_icon.svg);
+    
+        background-color: #dd4b39;
+width:100%;
+        background-repeat: no-repeat;
+        background-position: 10px,left;
+        background-size: 30px;
+        padding-left: 40px;
+        white-space: nowrap;
+        
+     border: 2px solid transparent;
+     border-radius: 5px;
+     box-sizing: border-box;
+     color: #fff;
+     cursor: pointer;
+     display: inline-block;
+     font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+     font-size: 20px;
+     font-weight: 400;
+     margin: 0;
+     min-width: 2.78572em;
+     line-height: 2.78572;
+        overflow: hidden;
+    }
 }

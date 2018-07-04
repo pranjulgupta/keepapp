@@ -1,0 +1,75 @@
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon ios="ios-add" md="md-add" class="rotate"></ion-icon>
+              
+      </button>
+
+      <ion-title align-title="center">
+          <div style="color:white">Help</div>
+        </ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click) =" presentPopover($event)"  >
+          <ion-icon ios="ios-more" md="md-more"  style="zoom:1.3;margin-right: 6px;color:white"></ion-icon>
+              </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-list-header>
+         <b>How can we help you ?</b>
+        </ion-list-header>
+        <ion-item>
+            <ion-input style="font-size: 15px" placeholder="Describe your issue..."></ion-input>
+            <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-list-header >
+          Popular
+          </ion-list-header>
+          <ion-item >
+              <ion-icon ios="ios-list-box" md="md-list-box"   style="zoom:1.3;margin-right:10px"></ion-icon>
+          How to use Google Keep            
+          </ion-item>
+          <ion-item >
+              <ion-icon ios="ios-list-box" md="md-list-box"  style="zoom:1.3;margin-right:10px"></ion-icon>
+          Archive notes and lists
+          </ion-item> 
+          <ion-item >
+              <ion-icon ios="ios-list-box" md="md-list-box"  style="zoom:1.3;margin-right:10px"></ion-icon>
+          Take image notes           
+  
+          </ion-item>
+           <ion-item >
+              <ion-icon ios="ios-list-box" md="md-list-box"  style="zoom:1.3;margin-right:10px"></ion-icon>
+          Send a Keep note to another app            
+  
+          </ion-item>
+           <ion-item >
+              <ion-icon ios="ios-list-box" md="md-list-box"  style="zoom:1.3;margin-right:10px"></ion-icon>
+          Change list,reminder and sharing settings   
+  
+          </ion-item>
+          
+        </ion-list>
+        <ion-list>
+            <ion-list-header>
+              <div style="color: blue">BROWSE ALL ARTICLES</div>
+            </ion-list-header>
+           
+            
+          </ion-list>
+          <ion-list>
+              <ion-list-header>
+              </ion-list-header>
+              <ion-item  style=" margin-top: -30px;">
+                  <ion-icon ios="ios-text" md="md-text" style="zoom:1.3;margin-right: 10px;"></ion-icon>
+              Send feedback
+              </ion-item>
+            </ion-list>
+</ion-content>

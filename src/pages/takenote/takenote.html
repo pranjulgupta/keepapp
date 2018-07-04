@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+
+      <ion-icon ios="ios-bookmark" md="md-bookmark" style="zoom:1.2; margin-right: 20px"></ion-icon>
+      <button style="background-color: transparent" (click)="reminderTask()">    <ion-icon ios="ios-alarm" md="md-alarm" style="zoom:1.2; margin-right: 15px"></ion-icon></button>
+      <button style="background-color: transparent" (click)="archiveTask()">   <ion-icon ios="ios-archive" md="md-archive" style="zoom:1.2; margin-right: 15px"></ion-icon></button>
+      <button style="background-color: transparent" (click)="unarchiveTask()">   <ion-icon ios="ios-archive" md="md-archive" style="zoom:1.2; margin-right: 15px" class="rotate"></ion-icon></button>
+
+      <button style="background-color: transparent" (click)="deleteTask()"><ion-icon ios="ios-trash" md="md-trash" style="zoom:1.2;margin-right: 5px "></ion-icon>
+   </button>
+      </ion-buttons>
+
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <p align="center">
+      <img src="{{cameraImage}}">
+    </p>
+    <ion-input style="font-size: 20px" placeholder="Title" [(ngModel)]="title"></ion-input>
+  </div>
+  <ion-input *ngIf="list" style="font-size: 15px" placeholder="Note" [(ngModel)]="note"></ion-input>
+  <ion-list>
+    <ion-list-header>
+    </ion-list-header>
+    <div *ngIf="!list">
+    <div *ngFor ="let list of tasksList" style="display:flex;justify-content: center;align-items: center">
+      <ion-checkbox [(ngModel)]="Layout" (ionChange)="updateLayout()"></ion-checkbox>
+      <ion-input  clearInput [(ngModel)]="list.name"></ion-input>
+      <button style="background: transparent" (click)="close()">
+        <ion-icon ios="ios-close" md="md-close" style="zoom:1.3;margin-right: 6px;"></ion-icon>
+      </button>
+
+      </div>
+      <ion-item >   
+        <button style="background: transparent;font-size: 15px" (click)=" openList()">
+          <ion-icon ios="ios-add" md="md-add" style="zoom:1.3;margin-right:15px"></ion-icon>List item
+        </button>
+
+      </ion-item>
+    </div>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-item>
+    <div>
+
+      <button style="background:transparent" (click)="actionsheet()">
+        <ion-icon ios="ios-add" style="zoom:1.5;" md="md-add"></ion-icon>
+      </button>
+      <span style="padding-left: 60px;">{{today | date:'short'}}</span>
+      <button style="float:right;background:transparent" (click)="actionsheet1()">
+        <ion-icon name="ios-more" style="zoom:1.5;"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+</ion-footer>

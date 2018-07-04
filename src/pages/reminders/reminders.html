@@ -1,0 +1,45 @@
+<ion-header>
+    
+  <ion-navbar >
+  
+      <button ion-button  menuToggle style="color:white">
+      <ion-icon name="menu"></ion-icon> 
+      </button>
+    <ion-title>
+     <div style="color:white"> Reminders</div>
+    </ion-title>
+    <ion-buttons end>
+    <ion-icon name="search"  style="zoom:1.5;margin-right: 20px ;color:white"  ></ion-icon>
+    <ion-icon name="square-outline"  style="zoom:1.5; margin-right: 5px;color:white"></ion-icon>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding > 
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+<div>
+      <ion-icon ios="ios-alarm" md="md-alarm"  style="zoom:2.0;margin-left: 70px "></ion-icon>
+ 
+  <!-- <ion-row justify-content-center align-items-center style="height: 100%"> -->
+  <p><b>Notes with upcoming reminders appear here</b></p></div>
+ </ion-row>
+ </ion-grid>
+</ion-content>
+
+
+<ion-footer>
+
+    <ion-item>
+        <ion-buttons end>
+        <button type="submit" style="background: transparent;width:150px;text-align: left" (click)="goToNotes()">Take a note...</button>
+ 
+        <button  style="background: transparent" (click)="goToList()" >    <ion-icon name="list"  style="zoom:1.5; margin-right: 10px;" ></ion-icon></button>
+          <button style="background: transparent" (click)="goToCreate()" >   <ion-icon name="create" style="zoom:1.5; margin-right: 10px;"  ></ion-icon> </button>
+            <button  style="background: transparent" (click)="goTomic()" >  <ion-icon name="mic" style="zoom:1.5; margin-right: 10px;" ></ion-icon></button>
+        <button  style="background: transparent" (click)="goToCamera()" >  <ion-icon name="camera"  style="zoom:1.5; margin-right: 10px;"></ion-icon></button>
+      </ion-buttons>
+      </ion-item>
+
+  </ion-footer>

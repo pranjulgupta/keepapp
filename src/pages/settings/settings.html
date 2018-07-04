@@ -1,0 +1,62 @@
+
+
+<ion-header>
+    <ion-navbar >
+        <button ion-button  menuToggle style="color:white">
+            <ion-icon ios="ios-arrow-back" md="md-arrow-back"item-left ></ion-icon>
+        </button>
+      <ion-title align-title="center">
+       <div style="color:white"> Settings</div>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+<ion-content padding >
+    <ion-list>
+        <ion-list-header>
+          <div style="color: blue">List behaviour</div>
+        </ion-list-header>
+        <ion-item>
+        <ion-label>  Add new items to bottom</ion-label>
+          <ion-toggle enable checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Move ticked items to bottom</ion-label>
+          <ion-toggle enable checked="false"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-list-header>
+            <div style="color: blue">Reminder settings</div>
+          </ion-list-header>
+          <ion-item >
+            Morning
+           <div style="float:right">8:00 AM</div>
+          </ion-item>
+          <ion-item>Afternoon
+              <div style="float:right">1:00 PM</div>
+          </ion-item>
+          <ion-item>Evening
+              <div style="float:right">6:00 PM</div>
+          </ion-item>
+          
+        </ion-list>
+        <ion-list>
+            <ion-list-header>
+              <div style="color: blue">Sharing</div>
+            </ion-list-header>
+            <ion-item >
+            <ion-label>  Enable sharing</ion-label>
+            <ion-toggle enable checked="false"></ion-toggle>
+            </ion-item>
+            
+          </ion-list>
+          <ion-list>
+              <ion-list-header>
+                <div style="color: blue">Assistive settings</div>
+              </ion-list-header>
+              <ion-item >
+           <ion-label>  Display rich link previews</ion-label> 
+              <ion-toggle enabel checked="false"></ion-toggle>
+              </ion-item>
+            </ion-list>
+</ion-content>

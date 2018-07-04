@@ -1,0 +1,44 @@
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+      <ion-buttons end>
+         
+        <ion-icon ios="ios-bookmark" md="md-bookmark" style="zoom:1.2; margin-right: 20px"></ion-icon>
+        <ion-icon ios="ios-alarm" md="md-alarm" style="zoom:1.2; margin-right: 20px"></ion-icon>
+        <ion-icon ios="ios-archive" md="md-archive" style="zoom:1.2; margin-right: 10px"></ion-icon>
+      </ion-buttons>
+  
+  
+    </ion-navbar>
+  
+  </ion-header>
+  <ion-content padding>
+      <ion-input style="font-size: 20px" placeholder="Title"></ion-input>
+      <ion-buttons end style="margin-top: -50px;">
+          <button ion-button icon-only (click) =" presentPopover($event)"  >
+          <ion-icon ios="ios-more" md="md-more"  style="zoom:1.3;"></ion-icon>
+              </button>
+      </ion-buttons>
+      <ion-list>
+          <ion-list-header>
+          </ion-list-header>
+          <div flex>
+            <ion-checkbox [(ngModel)]="Layout" (ionChange)="updateLayout()"></ion-checkbox>
+               <ion-input style="font-size: 15px" placeholder="Describe your issue..." clearInput></ion-input>
+              <ion-icon ios="ios-close" md="md-close" ion-right></ion-icon> 
+              
+          </div>
+          <ion-item>
+            
+                  <button ion-button icon-only (click) =" presentPopover($event)"  >
+                  <ion-icon ios="ios-add" md="md-add"  style="zoom:1.3;"></ion-icon>List item
+                      </button>
+              
+          </ion-item>
+        </ion-list>
+    </ion-content>
+    

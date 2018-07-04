@@ -1,0 +1,46 @@
+<ion-header>
+    
+    <ion-navbar >
+    
+        <button ion-button  menuToggle style="color:white">
+        <ion-icon name="menu"></ion-icon> 
+        </button>
+        <ion-title>
+            <div style="color:white"> Archive</div>
+           </ion-title>
+        <ion-buttons end>
+          <button  style="background: transparent" (click)="searchNotes()"> <ion-icon name="search"  style="zoom:1.5;margin-right: 20px ;color:white" item-right ></ion-icon></button>
+            <button  style="background: transparent" (click)="toggle()"><ion-icon name="square-outline"  style="zoom:1.5; margin-right: 5px;color:white"item-right ></ion-icon></button>            </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  <ion-content padding>
+        
+<ion-content padding > 
+    <ion-grid *ngIf="!layout" style="height: 100%">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+  <div>
+
+<ion-icon ios="ios-archive" md="md-archive"  style="zoom:3.2;margin-left: 15px; "></ion-icon>
+
+    <p><b>Your archived notes appear here</b></p></div>
+   </ion-row>
+   </ion-grid>
+      <div *ngIf="layout"  [ngClass]="{'notesContainer':layout1==true}">
+          <ion-card   [ngClass]="{'cardsLayout':layout==true}" *ngFor ="let arr of archiveArray ;let i=index" (click)= "openNote(i)"> 
+      
+          <ion-card-header>
+             <p align="center"><img src="{{arr.image}}"></p>
+               
+        <b>{{arr.title}}</b>
+          </ion-card-header>
+          <ion-card-content>
+          
+        <span style="font-size: 30px;font-family: Roboto Slab"> {{arr.note}}</span>
+        <span style="font-size: 20px;font-family: Roboto Slab" *ngFor ="let arr of archiveArray[i].tasks"> {{arr.name}}<br></span>
+
+          </ion-card-content>
+        </ion-card>
+        </div>
+  </ion-content>
+  </ion-content>

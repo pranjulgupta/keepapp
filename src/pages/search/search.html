@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <div  [ngClass]="{'notesContainer':layout==true}">
+   <ion-card   [ngClass]="{'cardsLayout':layout==true}" *ngFor ="let arr of notesarray " > 
+     
+         <ion-card-header>
+            <p align="center"><img src="{{arr.image}}"></p>
+              
+       <b>{{arr.title}}</b>
+         </ion-card-header>
+         <ion-card-content>
+         
+       <span style="font-size: 30px;font-family: Roboto Slab"> {{arr.note}}</span>
+       <span style="font-size: 10px;font-family: Roboto Slab"> {{arr.tasks}}</span>
+         </ion-card-content>
+       </ion-card>
+       </div>
+ </ion-content>
