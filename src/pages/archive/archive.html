@@ -37,7 +37,7 @@
           <ion-card-content>
           
         <span style="font-size: 30px;font-family: Roboto Slab"> {{arr.note}}</span>
-        <span style="font-size: 20px;font-family: Roboto Slab" *ngFor ="let arr of archiveArray[i].tasks"> {{arr.name}}<br></span>
+        <span style="font-size: 20px;font-family: Roboto Slab" *ngFor ="let arr of archiveArray[i].tasks" [ngClass]="{'checked':arr.Layout==true}"> {{arr.name}}<br></span>
 
           </ion-card-content>
         </ion-card>

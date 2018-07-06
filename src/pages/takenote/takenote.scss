@@ -12,4 +12,11 @@ page-takenote {
     transform: rotate(180deg);
 
 }
+.checked
+{
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: crimson;
+
+}
 }

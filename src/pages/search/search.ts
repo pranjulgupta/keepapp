@@ -24,6 +24,8 @@ this.nativeStorage.getItem('cards')
   },
   error => console.error(error)
 ); 
+console.log(this.notesarray);
+
   }
  layout=false;
 

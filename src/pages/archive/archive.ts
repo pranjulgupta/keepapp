@@ -17,7 +17,9 @@ note;
 image;
 newArray=[];
   constructor( public nativeStorage:NativeStorage, public navCtrl: NavController, public navParams: NavParams) {
-  }  toggle()
+  }  
+  
+  toggle()
   { 
 this.layout1=!this.layout1;
 
@@ -48,9 +50,12 @@ this.layout1=!this.layout1;
   {
 let  cardobj = {
   Index:index,
+  archiveId:1,
   showList: true,
-  note:this.archiveArray[index]  
+  notes:this.archiveArray[index]  
 };
+console.log("inside archive",cardobj);
+
 let self= this;
   this.nativeStorage.getItem('archiveCards')
   .then(data => {
@@ -70,8 +75,9 @@ console.log(self.newArray.splice(index,1));
       );
     }
   });
-
+  console.log("another inside archive",cardobj);
  this.navCtrl.push(TakenotePage,cardobj);
+
   }
 
 }

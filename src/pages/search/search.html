@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content padding>
   <div  [ngClass]="{'notesContainer':layout==true}">
-   <ion-card   [ngClass]="{'cardsLayout':layout==true}" *ngFor ="let arr of notesarray " > 
+   <ion-card   [ngClass]="{'cardsLayout':layout==true}" *ngFor ="let arr of notesarray;let i=index " > 
      
          <ion-card-header>
             <p align="center"><img src="{{arr.image}}"></p>
@@ -18,8 +18,8 @@
          <ion-card-content>
          
        <span style="font-size: 30px;font-family: Roboto Slab"> {{arr.note}}</span>
-       <span style="font-size: 10px;font-family: Roboto Slab"> {{arr.tasks}}</span>
-         </ion-card-content>
+       <span style="font-size: 20px;font-family: Roboto Slab" *ngFor ="let arr of notesarray[i].tasks"  [ngClass]="{'checked':arr.Layout==true}"> {{arr.name}}<br></span>
+      </ion-card-content>
        </ion-card>
        </div>
  </ion-content>

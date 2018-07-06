@@ -1,4 +1,4 @@
-
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { SearchPage } from './../search/search';
 import { Title } from '@angular/platform-browser';
 import { NativeStorage } from '@ionic-native/native-storage';
@@ -14,7 +14,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class NotesPage {
 data:any;
-  constructor( public nativeStorage:NativeStorage, public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,private camera: Camera){
+  constructor(private tts: TextToSpeech,public nativeStorage:NativeStorage, public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,private camera: Camera){
   }
 title;
 notes;
@@ -59,7 +59,7 @@ this.nativeStorage.getItem('cards')
   
 console.log("notesArray ",this.notesarray);
 // console.log("task name",this.notesarray);
-// console.log("task name array",this.notesarray[0].tasks[0].name);
+
 }
 
  

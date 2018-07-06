@@ -5,7 +5,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Title } from '@angular/platform-browser';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { locateHostElement } from '@angular/core/src/render3/instructions';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 @IonicPage()
 @Component({
   selector: 'page-takenote',
@@ -19,13 +19,20 @@ cardNote:any;
 title: string;
 note: string;
 noteForEdit: any;
+unarchivetasks:any;
 today=Date.now();
 newArray:any;
-constructor( public nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,public actionSheetCtrl: ActionSheetController,public popoverCtrl:PopoverController ) {
+constructor(private localNotifications: LocalNotifications, public nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,public actionSheetCtrl: ActionSheetController,public popoverCtrl:PopoverController ) {
   this.list = this.navParams.get('showList');
 }
-    
 
+updateLayout(index)
+{console.log("inside checkBox");
+
+//   this.tasksList[index].Layout="";
+// this.tasksList[index].Layout="changeLayout";
+this.tasksList[index].Layout=!this.tasksList[index].Layout;
+}
   close()
   {
     this.list=true;
@@ -151,19 +158,44 @@ console.log(this.notesarray);
  this.note="";
  this.list=true;
 }
+  }unacrchive=false;
+  unarchiveTasklist()
+  {this.unacrchive=true;
+    this.notes={title:this.title,note:this.note, image:this.cameraImage, tasks: this.tasksList};
+    this.addNotes();
+console.log("inside unacchive");
+ this.cameraImage="";
+        this.title="";
+        this.note="";
+        this.list=true;
   }
+  archiveid;
   ionViewDidEnter() { 
-    
-    
     this.index=this.navParams.get('index');
+this.archiveid=this.navParams.get('archiveId');
+console.log("archiveId",this.archiveid);
+
     console.log("index",this.index);
     if(this.index==undefined)
     {
         this.cameraImage=this.navParams.get('imageurl');
         console.log(this.cameraImage);
-        
+        this.unarchivetasks=this.navParams.get('notes');
+        console.log("unarchive task list",this.unarchivetasks);
+        this.title=this.unarchivetasks.title;
+        this.cameraImage=this.unarchivetasks.image;
+        this.note=this.unarchivetasks.note;
+        this.tasksList=this.unarchivetasks.tasks;
+        console.log("unarchivetask",this.tasksList,this.title,this.note,this.cameraImage);
+        if(!(this.tasksList.length==1&&this.tasksList[0].name==""))
+        {
+    this.list=false;
+         }
+ 
+        //return is must
         return
     }
+
     console.log("outside");
     this.noteForEdit = this.navParams.get('note');
     console.log(this.noteForEdit);
@@ -172,20 +204,14 @@ console.log(this.notesarray);
     this.note=this.noteForEdit.note;
     this.tasksList=this.noteForEdit.tasks;
     console.log("camera image",this.cameraImage);
+    console.log("noteforedit",this.noteForEdit);
     
     if(!(this.tasksList.length==1&&this.tasksList[0].name==""))
     {
 this.list=false;
     }
     console.log(this.title,this.note,this.tasksList,this.cameraImage);
-  }
-    
-    // this.tasksList=this.navParams.get('Tasks');
-    // console.log(this.index,this.title,this.note,this.tasksList);
-    
-   // this.cameraImage= this.navParams.get('image');
-    
-  
+  }   
   notes:any;
   name;
 //isUnarchive=false;
@@ -195,16 +221,14 @@ this.list=false;
     console.log(" taskArray= ",this.tasksList);
     
     
-    if(this.title!=null&&this.note!==null&&this.isDeleted==false&&this.isArchive==false)
+    if(this.title!=null&&this.note!==null&&this.isDeleted==false&&this.isArchive==false&&this.archiveid!=1)
     {
-      console.log("addnote");
+      console.log("addnote insise will leave");
     this.notes={title:this.title,note:this.note, image:this.cameraImage, tasks: this.tasksList};
     this.addNotes();
 
   }
 }
-unarchiveTask()
-{}
 
   addNotes() {
    
@@ -214,10 +238,13 @@ unarchiveTask()
       {
         data[this.index].title=this.title;
         data[this.index].note=this.note;
-        data[this.index].image=this.cameraImage;
-      
+       data[this.index].image=this.cameraImage;
+       data[this.index].tasks=this.tasksList;
+
       }
-     
+     console.log("inside data task list " ,this.tasksList);
+    console.log("inside data tasks " ,data[this.index].tasks);
+    
       if(this.index==null)
       { console.log("index",this.index);
 
@@ -329,9 +356,9 @@ unarchiveTask()
      
         actionSheet.present();
       }
-    tasksList=[{name:''}];
+    tasksList=[{name:'',Layout:false}];
     openList()
     {
-      this.tasksList.push({name:''});
+      this.tasksList.push({name:'',Layout:false});
     }
 }
